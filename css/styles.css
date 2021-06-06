@@ -949,6 +949,7 @@ img {
     padding: 12px 16px;
     margin-bottom: 20px;
     transition: border-color 250ms var(--transition-timing-func);
+    resize: none;
 }
 
 .modal-form-message::placeholder {
@@ -974,18 +975,27 @@ img {
 
 .label-user-checkbox::before {
     content: "";
-    background-image: url(../images/checkbox-svg/icon-checkbox.svg);
+    border: 2px solid var(--main-color);
+    border-radius: 3px;
     display: inline-block;
     width: 16px;
     height: 15px;
     margin-right: 7px;
     cursor: pointer;
     vertical-align: middle;
-    transition: background-image 250ms var(--transition-timing-func);
+    transition: border-color 250ms var(--transition-timing-func), background-color 250ms var(--transition-timing-func);
 }
 
 .modal-form-checkbox:checked+.label-user-checkbox::before {
+    background-color: var(--hover-color);
     background-image: url(../images/checkbox-svg/icon-checkbox-checked.svg);
+    background-position: center;
+    background-size: 110%;
+    border-color: var(--hover-color);
+}
+
+.modal-form-checkbox:focus+.label-user-checkbox::before {
+    border-color: var(--hover-color);
 }
 
 .checkbox {
